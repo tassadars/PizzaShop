@@ -5,11 +5,25 @@
 	<div class="row">
 		<% @products.each do |p| %>
 	  		<div class="col-xs-12 col-sm-6 col-md-4">
-	  			<%= p.title %>	
-	  			</br>
-	  			<img src="<%= p.path_to_image%>" alt="Pizza view">
-	  			</br>
-	  			Size: <%= p.size%>, Price: <%= p.price%>	  			
+	  			<div>
+	  				<%= p.title %>	
+	  			</div>
+
+	  			<div>
+	  				<img src="<%= p.path_to_image%>" alt="Pizza view">
+	  			</div>
+
+	  			<div>
+	  				<%= p.description %> 	  			
+	  			</div>	
+
+	  			<div>
+	  				Size: <%= p.size %> cm  			
+	  			</div>	  			
+
+	  			<div>
+	  				Price: <%= p.price %> rub	  			
+	  			</div>
 	  		</div>
 		<% end %>
 	</div>

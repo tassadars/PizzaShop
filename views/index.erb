@@ -26,6 +26,13 @@
 	  			</div>
 
 	  			<div>
+	  				Ordered count: 
+	  				<script type="text/javascript">
+	  					document.write(get_product_count(<%= p.id %>))
+	  				</script>	  			
+	  			</div>
+
+	  			<div>
 	  				<button class="btn btn-sm btn-success" onclick="add_to_cart(<%= p.id %>)" >Add to cart</button>
 	  			</div>
 	  		</div>

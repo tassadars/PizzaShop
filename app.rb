@@ -20,5 +20,13 @@ get '/about' do
 end
 
 post '/cart' do
-  "Hello"
+
+	@orders = params[:orders]
+	
+
+  	return @orders
+end
+
+get '/contacts' do
+  	erb :contacts
 end

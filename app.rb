@@ -22,7 +22,8 @@ end
 post '/cart' do
 
 	@orders = params[:orders]
-	@res = eval(@orders)
+	# UNSAFE eval method, DON'T USE ANYMORE
+	@res = eval(@orders) #parse string to hash ()
 
   	erb @res 
 end

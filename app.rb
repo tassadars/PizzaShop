@@ -36,7 +36,7 @@ before '/cart' do
 end
 
 get '/cart' do
-	erb :cart
+	erb :index
 end
 
 post '/cart' do
@@ -56,9 +56,9 @@ get '/contacts' do
 end
 
 get '/order' do
-  "Hello World"
+  	erb :order
 end
 
 post '/order' do
-  "Hello World"
+  	erb :order
 end

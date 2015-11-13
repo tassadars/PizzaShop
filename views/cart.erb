@@ -15,6 +15,7 @@
 		</thead>
 		<tbody>
 		<% total = 0 %>
+		<% @res ||= {} %>
 		<% @res.each do |key, val| %>
 			<% @products.each do |p| %>
 				<% if p.id === key.to_i %>

@@ -73,6 +73,8 @@ function get_product_count (id)
 	return result; 	
 }
  
+
+ 
 /*
 function change(el)
 {

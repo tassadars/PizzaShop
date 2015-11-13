@@ -20,6 +20,8 @@ function add_to_cart(id)
 	
 	move_orders_to_input();
 	update_orders_button();
+	 
+	document.getElementById(id).textContent = get_product_count(id);
 }
 
 function update_orders_button() {

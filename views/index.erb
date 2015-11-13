@@ -27,9 +27,11 @@
 
 	  			<div>
 	  				Ordered count: 
-	  				<script type="text/javascript">
-	  					document.write(get_product_count(<%= p.id %>))
-	  				</script>	  			
+	  				<span id="<%= p.id %>">
+		  				<script type="text/javascript">
+		  					document.write(get_product_count(<%= p.id %>))
+		  				</script>	
+		  			</span>  			
 	  			</div>
 
 	  			<div>

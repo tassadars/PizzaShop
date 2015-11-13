@@ -19,8 +19,13 @@ function add_to_cart(id)
 	window.localStorage.setItem(key+id, x);
 	
 	move_orders_to_input();
+	update_orders_button();
 }
 
+function update_orders_button() {
+	var text = 'Cart (' + get_total_product_count() + ')';
+	$('#orders_button').val(text);
+}
 
 function get_total_product_count ()
 {
@@ -32,7 +37,7 @@ function get_total_product_count ()
   		}
  	});
 	
-	window.localStorage.setItem('total', total)
+	return total;
 }
 
 function get_all_cart_products ()

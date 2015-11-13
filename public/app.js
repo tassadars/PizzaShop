@@ -35,9 +35,16 @@ function get_total_product_count ()
 
 function get_product_count (id)
 {
+	//var key = window.localStorage.key(index); // get the key in hash 
 	var result = window.localStorage.getItem(key+id); 
 	if (result == null) return 0
 		else
 	return result; 	
 }
 
+/*
+function change(el)
+{
+    el.value = el.value*1 + 1;
+}
+*/

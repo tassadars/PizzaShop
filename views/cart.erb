@@ -15,6 +15,7 @@
 		</thead>
 		<tbody>
 		<% total = 0 %>
+		<% list = '' %>		
 		<% @res ||= {} %>
 		<% @res.each do |key, val| %>
 			<% @products.each do |p| %>
@@ -27,6 +28,7 @@
 						<td><%= val %></td>
 					</tr>	
 					<% total += p.price*val.to_i %>
+					<% list = list + ' ' + p.title + '(' + val + ');' %>		
 				<% end %>
 			<% end %>	
 		<% end %>	
@@ -41,6 +43,6 @@
 		</tr>	
 	</tbody>
 </table>
-<input id="orders_input" name="orders" type="text" value="<%= @orders %>">
+<input id="orders_input" name="orders" type="text" value="<%= list %>">
 <button type="submit" class="btn btn-primary btn-lg btn-block">Перейти к оплате</button>
 </form>

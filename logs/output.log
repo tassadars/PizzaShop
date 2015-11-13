@@ -1,0 +1,4 @@
+# Logfile created on 2015-11-13 16:19:11 +0200 by logger.rb/44203
+D, [2015-11-13T16:19:13.345486 #5524] DEBUG -- : Hello, World!
+D, [2015-11-13T16:19:46.039356 #5524] DEBUG -- : product_1=>3,product_4=>4,product_5=>5,product_2=>2,product_3=>3
+D, [2015-11-13T16:19:48.437493 #5524] DEBUG -- : 

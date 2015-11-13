@@ -3,6 +3,17 @@ require 'rubygems'
 require 'sinatra'
 require 'sinatra/reloader'
 require 'sinatra/activerecord'
+require 'logger'
+
+Dir.mkdir('logs') unless File.exist?('logs')
+$log = Logger.new('logs/output.log','weekly')
+
+configure :production do
+  $log.level = Logger::WARN
+end
+configure :development do
+  $log.level = Logger::DEBUG
+end
 
 set :database, "sqlite3:pizzashop.db"
 
@@ -29,7 +40,11 @@ get '/cart' do
 end
 
 post '/cart' do
-	@orders = params[:orders]
+	if params[:orders] != ''
+		@orders = params[:orders]
+		#$log.debug @orders
+	end
+
 	if @orders = @orders.gsub('product_','')
 		@res = @orders.gsub(/[{}:]/,'').split(',').map{|h| h1,h2 = h.split('=>'); {h1 => h2}}.reduce(:merge)
 	end

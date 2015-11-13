@@ -1,7 +1,13 @@
 <h2>Список заказов</h2>
-
-<% @res.each do |key, val| %>
 	<p>
-		<a><%= val %></a>
-	</p>
-<% end %>
+<% @res.each do |key, val| %>
+	<% @products.each do |p| %>
+		<% if p.id === key.to_i %>
+			<%= p.id %>
+			<%= p.title %>, 	
+			штук: <%= val %>
+			<p></p>
+		<% end %>
+	<% end %>	
+<% end %>	
+</p>

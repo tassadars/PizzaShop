@@ -19,11 +19,20 @@ get '/about' do
 	erb :about		
 end
 
+before '/cart' do
+	@orders
+	@products = Product.all
+end
+
+get '/cart' do
+	erb :cart
+end
+
 post '/cart' do
-
 	@orders = params[:orders]
-	@res = @orders.gsub(/[{}:]/,'').split(',').map{|h| h1,h2 = h.split('=>'); {h1 => h2}}.reduce(:merge)
-
+	if @orders = @orders.gsub('product_','')
+		@res = @orders.gsub(/[{}:]/,'').split(',').map{|h| h1,h2 = h.split('=>'); {h1 => h2}}.reduce(:merge)
+	end
   	erb :cart 
 end
 

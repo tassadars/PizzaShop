@@ -33,6 +33,19 @@ function get_total_product_count ()
 	window.localStorage.setItem('total', total)
 }
 
+function get_all_cart_products ()
+{
+	var order = '';
+
+	$.each(localStorage, function(k, v){
+  		if (k.indexOf(key) > -1) {
+			order = order + k + '=' + v + ',';
+  		}
+ 	});
+	
+	return order;
+}
+
 function get_product_count (id)
 {
 	//var key = window.localStorage.key(index); // get the key in hash 
@@ -41,7 +54,7 @@ function get_product_count (id)
 		else
 	return result; 	
 }
-
+ 
 /*
 function change(el)
 {

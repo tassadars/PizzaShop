@@ -22,9 +22,9 @@ end
 post '/cart' do
 
 	@orders = params[:orders]
-	
+	@res = eval(@orders)
 
-  	return @orders
+  	erb @res 
 end
 
 get '/contacts' do

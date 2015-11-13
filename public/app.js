@@ -44,14 +44,19 @@ function get_total_product_count ()
 
 function get_all_cart_products ()
 {
-	var order = '';
+	var order = '"{';
 
 	$.each(localStorage, function(k, v){
   		if (k.indexOf(key) > -1) {
-			order = order + k + '=' + v + ',';
+			order = order + ':' + k + '=>' + v + ',';
   		}
  	});
-	
+
+	if (order.slice(-1) == ',') {
+		order = order.slice(0, -1);
+	}
+	order = order + '}"';
+
 	return order;
 }
 	

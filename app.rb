@@ -17,8 +17,14 @@ end
 
 set :database, "sqlite3:pizzashop.db"
 
-
 class Product < ActiveRecord::Base
+end
+
+class ClientOrder < ActiveRecord::Base
+	validates :name, presence: true
+	validates :phone, presence: true
+	validates :address, presence: true
+	validates :list, presence: true
 end
 
 get '/' do
@@ -55,6 +61,13 @@ get '/contacts' do
   	erb :contacts
 end
 
+
+
+
+before '/order' do
+  @c = ClientOrder.new
+end
+
 get '/order' do
   	erb :order
 end
@@ -64,7 +77,18 @@ post '/order' do
 		@orders = params[:orders]
 		#$log.debug @orders
 	end
-	
 	@orders = params[:orders]
   	erb :order
+end
+
+post '/confirm' do
+	@c = ClientOrder.new params[:client]
+	if @c.save
+		erb '<h2>Спасибо, ждите доставки!</h2>'
+	else
+		@error = @c.errors.full_messages.first
+		erb :order
+	end
+
+  	erb "Wait pizza!!!"
 end

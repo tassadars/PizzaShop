@@ -1,0 +1,27 @@
+<h2>Confirmation page</h2>
+<p>Введите личные данные:</p>
+
+<form action= "/order" method="POST" role="form">
+  <div class="form-group">
+    <label>Ваше имя</label>
+    <input name="client[name]" type="text" class="form-control" placeholder="Ваше имя">
+  </div>
+ 
+  <div class="form-group">
+    <label>Ваше телефон</label>
+    <input name="client[phone]" type="text" class="form-control" placeholder="Ваш телефон">
+  </div>
+
+  <div class="form-group">
+    <label>Адресс доставки</label>
+    <input name="client[address]" type="text" class="form-control" placeholder="Ваш адресс">
+  </div>
+
+  <div class="form-group">
+    <label>Список заказанных продуктов</label>
+    <input name="client[list]" type="text" class="form-control" placeholder="Ваш список">
+  </div>
+
+  <button type="submit" class="btn btn-primary btn-lg btn-block">Оплатить!</button>
+
+</form>

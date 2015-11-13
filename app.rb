@@ -60,5 +60,11 @@ get '/order' do
 end
 
 post '/order' do
+	if params[:orders] != ''
+		@orders = params[:orders]
+		#$log.debug @orders
+	end
+	
+	@orders = params[:orders]
   	erb :order
 end

@@ -47,7 +47,7 @@ function get_all_cart_products ()
 	
 	return order;
 }
-
+	
 function move_orders_to_input() {
 	var orders = get_all_cart_products();
 	$('#orders_input').val(orders);

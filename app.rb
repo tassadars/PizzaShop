@@ -54,3 +54,11 @@ end
 get '/contacts' do
   	erb :contacts
 end
+
+get '/order' do
+  "Hello World"
+end
+
+post '/order' do
+  "Hello World"
+end

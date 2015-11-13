@@ -22,10 +22,9 @@ end
 post '/cart' do
 
 	@orders = params[:orders]
-	# UNSAFE eval method, DON'T USE ANYMORE
-	@res = eval(@orders) #parse string to hash ()
+	@res = @orders.gsub(/[{}:]/,'').split(',').map{|h| h1,h2 = h.split('=>'); {h1 => h2}}.reduce(:merge)
 
-  	erb @res 
+  	erb :cart 
 end
 
 get '/contacts' do

@@ -42,13 +42,14 @@ before '/cart' do
 end
 
 get '/cart' do
-	erb :cart
+	#How to fix it? To receive table with info.
+	erb "Please click on Cart button to continue"
 end 
 
 post '/cart' do
 	@orders_input = params[:orders]
 	@items = parse_orders_input @orders_input
-	
+
 	# id, cnt - in array. We will replace id by full record from DB
 	@items.each do |item|
 		item[0] = Product.find(item[0])

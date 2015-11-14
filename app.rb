@@ -46,23 +46,26 @@ get '/cart' do
 end 
 
 post '/cart' do
-	if params[:orders] != ''
-		@orders = params[:orders]
-		#$log.debug @orders
-	end
+	@orders_input = params[:orders]
+	@orders = parse_orders_input @orders_input
+	erb "Hello! #{@orders.inspect}"
 
-	if @orders = @orders.gsub('product_','')
-		@res = @orders.gsub(/[{}:]/,'').split(',').map{|h| h1,h2 = h.split('=>'); {h1 => h2}}.reduce(:merge)
-	end
-  	erb :cart 
+	# if params[:orders] != ''
+	# 	@orders_input = params[:orders]
+	# 	erb "Hello! #{@orders_input}"
+	# 	return
+	# 	#$log.debug @orders
+	# end
+
+	# if @orders = @orders.gsub('product_','')
+	# 	@res = @orders.gsub(/[{}:]/,'').split(',').map{|h| h1,h2 = h.split('=>'); {h1 => h2}}.reduce(:merge)
+	# end
+ #  	erb :cart 
 end
 
 get '/contacts' do
   	erb :contacts
 end
-
-
-
 
 before '/order' do
   @c = ClientOrder.new
@@ -93,8 +96,8 @@ post '/confirm' do
   	erb "Wait pizza!!!"
 end
 
-def parse_orders_line orders_line
-	s1 = orders_line.split(/,/)
+def parse_orders_input orders_input
+	s1 = orders_input.split(/,/)
 	arr = []
 
 	s1.each do |x|

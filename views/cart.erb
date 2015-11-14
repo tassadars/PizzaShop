@@ -16,28 +16,24 @@
 		<tbody>
 		<% total = 0 %>
 		<% list = '' %>		
-		<% @res ||= {} %>
-		<% @res.each do |key, val| %>
-			<% @products.each do |p| %>
-				<% if p.id === key.to_i %>
-					<tr>
-						<td><%= p.id %></td>
-						<td><%= p.title %></td>
-						<td><%= p.size %> cm</td>
-						<td><%= p.price %> rub</td>
-						<td><%= val %></td>
-					</tr>	
-					<% total += p.price*val.to_i %>
-					<% list = list + ' ' + p.title + '(' + val + ');' %>		
-				<% end %>
-			<% end %>	
+		<% @items ||= {} %>
+		<% @items.each do |key, val| %>
+			<tr>
+				<td><%= key.id %></td>
+				<td><%= key.title %></td>
+				<td><%= key.size %> cm</td>
+				<td><%= key.price %> rub</td>
+				<td><%= val %></td>
+			</tr>	
+			<% total += key.price*val.to_i %>
+			<% list = list + ' ' + key.title + '(' + val + ');' %>		
 		<% end %>	
 		<tr>
 			<td></td>
 			<td></td>
 			<td></td>
 			<td></td> 
-			<td align='right'>
+			<td align='right'>  
 			Total price: <%= total%> rub
 			</td>
 		</tr>	

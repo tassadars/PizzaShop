@@ -42,7 +42,7 @@ before '/cart' do
 end
 
 get '/cart' do
-	erb :index
+	erb :cart
 end
 
 post '/cart' do

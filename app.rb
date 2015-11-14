@@ -32,10 +32,6 @@ get '/' do
 	erb :index		
 end
 
-get '/about' do
-	erb :about		
-end
-
 before '/cart' do
 	@orders
 	@products = Product.all
@@ -89,6 +85,12 @@ post '/confirm' do
 	end
 
   	erb "Wait pizza!!!"
+end
+
+get '/all_orders' do
+
+		@a = ClientOrder.all
+  		erb :all_orders
 end
 
 def parse_orders_input orders_input

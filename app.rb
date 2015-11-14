@@ -47,20 +47,14 @@ end
 
 post '/cart' do
 	@orders_input = params[:orders]
-	@orders = parse_orders_input @orders_input
-	erb "Hello! #{@orders.inspect}"
-
-	# if params[:orders] != ''
-	# 	@orders_input = params[:orders]
-	# 	erb "Hello! #{@orders_input}"
-	# 	return
-	# 	#$log.debug @orders
-	# end
-
-	# if @orders = @orders.gsub('product_','')
-	# 	@res = @orders.gsub(/[{}:]/,'').split(',').map{|h| h1,h2 = h.split('=>'); {h1 => h2}}.reduce(:merge)
-	# end
- #  	erb :cart 
+	@items = parse_orders_input @orders_input
+	
+	# id, cnt - in array. We will replace id by full record from DB
+	@items.each do |item|
+		item[0] = Product.find(item[0])
+	end
+	
+	erb :cart
 end
 
 get '/contacts' do

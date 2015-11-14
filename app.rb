@@ -43,7 +43,7 @@ end
 
 get '/cart' do
 	erb :cart
-end
+end 
 
 post '/cart' do
 	if params[:orders] != ''
@@ -91,4 +91,21 @@ post '/confirm' do
 	end
 
   	erb "Wait pizza!!!"
+end
+
+def parse_orders_line orders_line
+	s1 = orders_line.split(/,/)
+	arr = []
+
+	s1.each do |x|
+		s2 = x.split(/\=>/)
+		s3 = s2[0].split(/_/)
+
+		key = s3[1]
+		value = s2[1]
+
+		arr2 = [key, value]
+		arr.push arr2	                                                       
+	end
+	return arr
 end

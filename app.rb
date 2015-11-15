@@ -78,13 +78,11 @@ end
 post '/confirm' do
 	@c = ClientOrder.new params[:client]
 	if @c.save
-		erb '<h2>Спасибо, ждите доставки!</h2>'
+		erb :order_placed
 	else
 		@error = @c.errors.full_messages.first
 		erb :order
 	end
-
-  	erb "Wait pizza!!!"
 end
 
 get '/all_orders' do

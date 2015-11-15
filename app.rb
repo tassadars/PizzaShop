@@ -50,7 +50,11 @@ post '/cart' do
 	@items.each do |item|
 		item[0] = Product.find(item[0])
 	end
-	
+
+	if @items.length == 0
+		return erb "cart is empty"
+	end
+		
 	erb :cart
 end
 

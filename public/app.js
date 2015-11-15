@@ -75,8 +75,11 @@ function get_product_count (id)
 
 function cancel_order ()
 {
-	alert('Clear'); 
-	// need to return false - to exclude button from POST method and form
+	window.localStorage.clear();
+	move_orders_to_input();
+	update_orders_button();
+
+	// need to return false - to exclude button from POST method and form 
 	return false;
 }
 /*

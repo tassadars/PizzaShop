@@ -72,9 +72,13 @@ function get_product_count (id)
 		else
 	return result; 	
 }
- 
 
- 
+function cancel_order ()
+{
+	alert('Clear'); 
+	// need to return false - to exclude button from POST method and form
+	return false;
+}
 /*
 function change(el)
 {

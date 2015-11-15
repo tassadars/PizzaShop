@@ -24,6 +24,6 @@
 
   <input id="orders_input" name="orders" type="text" value="<%= @orders %>">
   <button type="submit" class="btn btn-primary btn-lg btn-block">Оплатить!</button>
-  <button class="btn btn-danger btn-lg btn-block" onclick="alert('Clear'); return false;">Отменить заказ</button>
+  <button class="btn btn-danger btn-lg btn-block" onclick="return cancel_order()">Отменить заказ</button>
 
 </form>

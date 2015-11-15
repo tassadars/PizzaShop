@@ -79,6 +79,9 @@ function cancel_order ()
 	move_orders_to_input();
 	update_orders_button();
 
+	//$('#cart').css('background-color', 'yellow');
+  	$('#cart').text('Your cart is now empty');
+
 	// need to return false - to exclude button from POST method and form 
 	return false;
 }
